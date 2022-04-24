@@ -15,13 +15,13 @@ alphas=list(ascii_uppercase)
 
 n=int(input())
 string=input()
-
+nums=[]
 for i in range(n):
-    num=input()
-    string=string.replace(alphas[i],num)
+    nums.append(input())
 
 for char in string :
-    if char.isnumeric():
+    if char.isalpha():
+        char=nums[ord(char)-ord('A')]
         stack.append(char)
     else :
         num2=stack.pop()
