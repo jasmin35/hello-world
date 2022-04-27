@@ -1,6 +1,7 @@
 t=int(input())
 for i in range(t):
     sentence=input()
+    sentence+=" "
     stack=[]
     for char in sentence:
         if char==" ":
@@ -9,6 +10,6 @@ for i in range(t):
             print(" ",end="")
         else:
             stack.append(char)
-    while stack:
-        popped=stack.pop()
-        print(popped,end="")
+    # while stack:
+    #     popped=stack.pop()
+    #     print(popped,end="")
