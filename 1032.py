@@ -5,4 +5,5 @@ for i in range(n-1):
     for index in range(len(line)):
         if line[index]!=new_line[index]:
             line[index]='?'
-print(line)
+s="".join(line)
+print(s)
