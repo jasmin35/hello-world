@@ -1,18 +1,14 @@
-prime_list = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53]
+from prime import prime_list
 
 # 합계가 짝수가 되는 두 소수를 찾는 함수예요.
 def goldbach(arr):
     array = []
     # 합계가 짝수가 되는 두 소수를 작은 수부터 차례로 리스트에 저장해 주세요.
-    # print(arr)
     for even_num in arr:
-        # print("came in")
-        for i in range(even_num):
-            # print(i)
+        for i in range(even_num//2, even_num):
             if i in prime_list and even_num-i in prime_list:
-                array.append([i,even_num-i])
+                array.append([even_num-i,i])
                 break
-                # print(array)
     return array
 
 
