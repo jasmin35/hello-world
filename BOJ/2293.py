@@ -5,24 +5,12 @@ coins = []
 for _ in range(n):
     coins.append(int(input()))
 
-count_list = [0] * (k + 1)
-count_list[0] = 1
+count_list = [0] * (k + 1) # 한 번 계산된 결과를 메모이제이션하기 위해 리스트 초기화
+count_list[0] = 1 # count_list[0] = count_list[k-k] 즉 한 종류의 동전만 사용하는 경우
 
-for i in coins:
-    for j in range(i, k + 1):
-        count_list[j] += count_list[j - i]
+for c in coins: # 사용하는 코인의 종류를 추가하며 경우의 수를 업데이트
+    for j in range(c, k + 1): # 사용하기로 새로 추가한 코인의 값부터 끝까지 업데이트
+        count_list[j] += count_list[j - c] # 업데이트 방식 : 저장해뒀던 경우의 수 값 + 알파. 
+        # 이때 알파는 해당 코인 값 만큼 뺀 값을 합으로 만드는 경우의 수와 같다. 
 
 print(count_list[k])
-
-"""
-동적 계획법(Dynamic Programming, DP)
-
-한 번 해결된 문제의 정답은 기록하여 한 번 계산한 답은 다시 계산되지 않도록 하는 문제 해결 기법(memoization, 메모이제이션)
-메모리 공간을 조금 더 사용하되 연산 속도를 비약적으로 증가시키는 방법
-
-1. 탑다운 - 재귀함수 이용.
-2. 보텀업 - 단순 반복문 이용.
-
-점화식 구성이 핵심. 인접한 항들 사이의 관계식.
-
-"""
